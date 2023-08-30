@@ -24,7 +24,7 @@ figure(2);
 plot(x,'-ok');
 ylabel('population steady state')
 xlabel('value of r')
-for r=0:0.25:3
+for r=0:0.01:3
     for n=2:nMax
     x(n,:) = xdot(x(n-1,:),r,K);
     end
