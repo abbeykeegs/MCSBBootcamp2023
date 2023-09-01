@@ -2,7 +2,7 @@
 A     = 1.1; % fluorescence intensity units
 omega = 2.6; % rad/s
 A_0   = 0.01; % constant
-noise = (0); % defining noise as a parameter
+noise = (1e-6); % defining noise as a parameter
 
 u=@(t) A*sin(omega*t)+A_0;
 
@@ -20,7 +20,7 @@ du3dt3Exact    = -A*omega^3*cos(omega*tArray);
  
 %display(uObserved);
 
-dudt = diff(uArray)./diff(tArray); % first derivative
+dudt = diff(uObserved)./diff(tArray); % first derivative
 du2dt2 = diff(dudt)./diff(tArray(1:end-1)); % second derivative
 du3dt3 = diff(du2dt2)./diff(tArray(1:end-2)); % third derivative
 
